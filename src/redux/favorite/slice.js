@@ -19,9 +19,6 @@ const slice = createSlice({
         item => item.id !== action.payload.id
       );
     },
-    chengeIsFavorite: state => {
-      state.isFavorite = !state.isFavorite;
-    },
   },
 });
 
