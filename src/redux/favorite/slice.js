@@ -4,7 +4,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   favorites: [],
-  isFavorite: false,
 };
 
 const slice = createSlice({
