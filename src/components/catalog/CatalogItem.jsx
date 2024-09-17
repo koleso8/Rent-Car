@@ -2,6 +2,7 @@ import { GoHeart, GoHeartFill } from 'react-icons/go';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from '../../redux/favorite/selectors';
 import { addToFavorite, deleteFavorite } from '../../redux/favorite/slice';
+import { setCurrentCar } from '../../redux/modal/slice';
 
 const CatalogItem = ({ car }) => {
   const dispath = useDispatch();
@@ -49,6 +50,7 @@ const CatalogItem = ({ car }) => {
       <button
         className="w-full bg-[#3470ff] p-3 rounded-xl text-white text-sm absolute bottom-0"
         type="button"
+        onClick={() => dispath(setCurrentCar(car))}
       >
         Learn more
       </button>

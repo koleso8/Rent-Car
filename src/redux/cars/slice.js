@@ -13,8 +13,6 @@ const slice = createSlice({
         state.items = action.payload;
       })
       .addCase(loadMoreCarsThunk.fulfilled, (state, action) => {
-        console.log(action.payload);
-
         state.items = [...state.items, ...action.payload];
       })
       .addMatcher(
