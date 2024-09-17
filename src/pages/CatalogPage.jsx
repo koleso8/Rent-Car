@@ -8,7 +8,6 @@ const CatalogPage = () => {
   dispatch(fetchCarsThunk());
   return (
     <div className="max-w-[1184px] mx-auto">
-      Catalog
       <CatalogList />
       <LoadMoreButton />
     </div>

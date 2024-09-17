@@ -13,7 +13,9 @@ const slice = createSlice({
         state.items = action.payload;
       })
       .addCase(loadMoreCarsThunk.fulfilled, (state, action) => {
-        state.items.push(action.payload);
+        console.log(action.payload);
+
+        state.items = [...state.items, ...action.payload];
       })
       .addMatcher(
         isAnyOf(

@@ -1,14 +1,9 @@
-import { FiHeart } from 'react-icons/fi';
 import { GoHeart, GoHeartFill } from 'react-icons/go';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from '../../redux/favorite/selectors';
 import { addToFavorite, deleteFavorite } from '../../redux/favorite/slice';
 
 const CatalogItem = ({ car }) => {
-  //   console.log(car);
-  //   console.log(
-  //     car.functionalities[Math.floor(Math.random() * car.functionalities.length)]
-  //   );
   const dispath = useDispatch();
 
   const isFavorite = useSelector(selectFavorites).find(
@@ -16,7 +11,7 @@ const CatalogItem = ({ car }) => {
   );
 
   return (
-    <li className="w-[274px] relative">
+    <li className="w-[274px] h-[426px] relative">
       <span className="absolute top-4 right-4">
         {!isFavorite ? (
           <GoHeart
@@ -33,7 +28,7 @@ const CatalogItem = ({ car }) => {
         )}
       </span>
       <img
-        className="mb-[14px] w-full h-[268px] object-cover rounded-[14px]"
+        className="mb-[14px] w-full h-[268px] object-cover rounded-[14px] select-none"
         src={car.img}
         alt={car.model}
       />
@@ -44,9 +39,7 @@ const CatalogItem = ({ car }) => {
         </span>
         <h3 className="font-medium">{car.rentalPrice}</h3>
       </span>
-      <div className="mb-7">
-        {/*
-"567 Example Street, Lviv, Ukraine" */}
+      <div className="">
         <p className="font-normal text-xs text-[#182023] opacity-50">
           {car.address.split(', ')[1]} | {car.address.split(', ')[2]} |{' '}
           {car.rentalCompany} | {car.type} | {car.model} | {car.mileage} |{' '}
@@ -54,7 +47,7 @@ const CatalogItem = ({ car }) => {
         </p>
       </div>
       <button
-        className="w-full bg-[#3470ff] p-3 rounded-xl text-white text-sm"
+        className="w-full bg-[#3470ff] p-3 rounded-xl text-white text-sm absolute bottom-0"
         type="button"
       >
         Learn more

@@ -1,9 +1,24 @@
-import React from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loadMoreCarsThunk } from '../redux/cars/operation';
 
 const LoadMoreButton = () => {
-  // dispatch(loadMoreCarsThunk(2));
+  const dispatch = useDispatch();
+  const [page, setPage] = useState(2);
 
-  return <button>Laod More</button>;
+  const handleClick = () => {
+    dispatch(loadMoreCarsThunk(page));
+    setPage(prev => prev + 1);
+  };
+
+  return (
+    <button
+      className="block mx-auto mt-[100px] mb-[150px] text-[#3470ff] underline underline-offset-1"
+      onClick={handleClick}
+    >
+      Load More
+    </button>
+  );
 };
 
 export default LoadMoreButton;
