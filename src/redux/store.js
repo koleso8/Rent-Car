@@ -15,6 +15,7 @@ import storage from 'redux-persist/lib/storage';
 import { favoriteReducer } from './favorite/slice';
 import { carsReducer } from './cars/slice';
 import { modalReducer } from './modal/slice';
+import { filterReducer } from './filter/slice';
 
 const persistConfig = {
   key: 'root',
@@ -30,6 +31,7 @@ export const store = configureStore({
     favorite: persistedReducer,
     cars: carsReducer,
     modal: modalReducer,
+    filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

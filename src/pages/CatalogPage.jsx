@@ -1,13 +1,11 @@
-import { useDispatch } from 'react-redux';
 import CatalogList from '../components/catalog/CatalogList';
-import { fetchCarsThunk } from '../redux/cars/operation';
+import Filter from '../Filter/Filter';
 import LoadMoreButton from '../components/LoadMoreButton';
 
 const CatalogPage = () => {
-  const dispatch = useDispatch();
-  dispatch(fetchCarsThunk());
   return (
     <div className="max-w-[1184px] mx-auto">
+      <Filter />
       <CatalogList />
       <LoadMoreButton />
     </div>
