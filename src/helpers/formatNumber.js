@@ -1,4 +1,5 @@
 export const formatNumber = num => {
-  if (num > 90000) return 90000;
+  const max = 90000;
+  if (num > 90000) return max.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };

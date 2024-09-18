@@ -50,7 +50,7 @@ const CatalogItem = ({ car }) => {
         </p>
       </div>
       <button
-        className="w-full bg-[#3470ff] p-3 rounded-xl text-white text-sm absolute bottom-0 hover:bg-[#0b44cd] ease-linear duration-200"
+        className="w-full bg-[#3470ff] p-3 rounded-xl text-white text-sm absolute bottom-0 hover:bg-[#0b44cd] ease-linear duration-200 outline-none"
         type="button"
         onClick={() => dispath(setCurrentCar(car))}
       >

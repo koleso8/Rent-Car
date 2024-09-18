@@ -84,7 +84,7 @@ const CustomModal = ({ isOpen, onClose, car }) => {
               </div>
             </div>
             <a
-              className=" block w-[168px] p-3 bg-[#3470ff] text-white text-sm font-semibold rounded-xl text-center hover:bg-[#0b44cd] ease-linear duration-200"
+              className=" block w-[168px] p-3 bg-[#3470ff] text-white text-sm font-semibold rounded-xl text-center hover:bg-[#0b44cd] ease-linear duration-200 outline-none"
               href="tel:+380730000000"
             >
               Rental car
