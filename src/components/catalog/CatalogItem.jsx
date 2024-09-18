@@ -24,7 +24,7 @@ const CatalogItem = ({ car }) => {
         ) : (
           <GoHeartFill
             className="cursor-pointer"
-            color="white"
+            color="#3470ff"
             size="24px"
             onClick={() => dispath(deleteFavorite(car))}
           />
@@ -50,7 +50,7 @@ const CatalogItem = ({ car }) => {
         </p>
       </div>
       <button
-        className="w-full bg-[#3470ff] p-3 rounded-xl text-white text-sm absolute bottom-0"
+        className="w-full bg-[#3470ff] p-3 rounded-xl text-white text-sm absolute bottom-0 hover:bg-[#0b44cd] ease-linear duration-200"
         type="button"
         onClick={() => dispath(setCurrentCar(car))}
       >

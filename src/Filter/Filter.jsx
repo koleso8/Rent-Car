@@ -61,9 +61,9 @@ const Filter = () => {
                   dispatch(filterMileageFrom(+value));
                 }}
               />
-              <span className="absolute top-8 left-10 z-10 text-black text-lg bg-[#f7f7fb] h-9 w-[120px] pointer-events-none overflow-hidden border-r border-gray-300">{`From ${formatNumber(
-                mileageFrom
-              )}`}</span>
+              <span className="absolute top-8 left-10 z-10 text-black text-lg bg-[#f7f7fb] h-9 w-[120px] pointer-events-none overflow-hidden border-r border-gray-300">
+                {formatNumber(mileageFrom)}
+              </span>
             </label>
             <label className=" text-xs text-transparent relative leading-[22px]">
               Сar mileage / km
@@ -80,13 +80,13 @@ const Filter = () => {
                   dispatch(filterMileageTo(+value));
                 }}
               />
-              <span className="absolute top-8 left-8 z-10 text-black text-lg bg-[#f7f7fb] h-9 w-20 pointer-events-none overflow-hidden">{`To ${formatNumber(
-                mileageTo
-              )}`}</span>
+              <span className="absolute top-8 left-8 z-10 text-black text-lg bg-[#f7f7fb] h-9 w-20 pointer-events-none overflow-hidden">
+                {formatNumber(mileageTo)}
+              </span>
             </label>
           </span>
           <button
-            className="bg-[#3470ff] rounded-xl p-[14px] w-[136px] h-12 text-center text-white font-semibold text-sm"
+            className="bg-[#3470ff] rounded-xl p-[14px] w-[136px] h-12 text-center text-white font-semibold text-sm hover:bg-[#0b44cd] ease-linear duration-200"
             type="submit"
           >
             Search
