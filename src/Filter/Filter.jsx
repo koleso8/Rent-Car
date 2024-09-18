@@ -1,9 +1,10 @@
 import { Field, Form, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import SelectBrand from './SelectBrand';
-import SelectPrice from './SelectPrice';
+import InputSelectBrand from './InputSelectBrand';
+import InputSelectPrice from './InputSelectPrice';
 import {
   addFiltererdCars,
+  clearFilter,
   filterMileageFrom,
   filterMileageTo,
 } from '../redux/filter/slice';
@@ -11,13 +12,14 @@ import { filterCars } from '../helpers/filterCars';
 import { selectCars } from '../redux/cars/selectors';
 import {
   selectFilter,
-  selectFilteredCars,
   selectMileageFrom,
   selectMileageTo,
 } from '../redux/filter/selectors';
 
 import { formatNumber } from '../helpers/formatNumber';
 import { unformatNumber } from '../helpers/unformatNumber';
+import { HiOutlineRefresh } from 'react-icons/hi';
+import { setShowLoadMore } from '../redux/cars/slice';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -45,10 +47,10 @@ const Filter = () => {
         {({ values, setFieldValue }) => (
           <Form className="flex gap-[18px] justify-between w-full items-end">
             <span className="w-[224px]">
-              <SelectBrand />
+              <InputSelectBrand />
             </span>
             <span className="w-[124px]">
-              <SelectPrice />
+              <InputSelectPrice />
             </span>
             <span className="flex ">
               <label className="text-[#8a8a89] text-xs relative leading-[22px] flex flex-col">
@@ -62,6 +64,10 @@ const Filter = () => {
                     const value = unformatNumber(e.target.value);
                     if (!isNaN(value)) {
                       setFieldValue('mileageFrom', Number(value));
+                      if (Number(value) >= values.mileageTo) {
+                        setFieldValue('mileageTo', Number(value) + 500);
+                        dispatch(filterMileageTo(Number(value) + 500));
+                      }
                       dispatch(filterMileageFrom(Number(value)));
                     }
                   }}
@@ -92,6 +98,13 @@ const Filter = () => {
             >
               Search
             </button>
+            <HiOutlineRefresh
+              className="bg-[#3470ff] rounded-full p-[14px] w-12 h-12 text-center text-white font-semibold text-sm hover:bg-[#0b44cd] ease-linear duration-200 cursor-pointer"
+              onClick={() => {
+                dispatch(setShowLoadMore(true));
+                dispatch(clearFilter());
+              }}
+            />
           </Form>
         )}
       </Formik>

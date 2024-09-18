@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 
 const initialState = {
   filteredCars: [],
@@ -13,6 +14,9 @@ const slice = createSlice({
   reducers: {
     addFiltererdCars: (state, action) => {
       state.filteredCars = [...action.payload];
+      action.payload.length
+        ? toast.success(`${action.payload.length} results`)
+        : toast.error('No result');
     },
     filterBrand: (state, action) => {
       state.brand = action.payload;
@@ -29,14 +33,15 @@ const slice = createSlice({
     filterMileageTo: (state, action) => {
       state.mileage.mileageTo = action.payload;
     },
-  },
-  clearFilter: state => {
-    state.brand = null;
-    state.price = null;
-    state.mileage = {
-      mileageFrom: null,
-      mileageTo: null,
-    };
+    clearFilter: state => {
+      state.filteredCars = [];
+      state.brand = null;
+      state.price = null;
+      state.mileage = {
+        mileageFrom: 0,
+        mileageTo: 0,
+      };
+    },
   },
 });
 

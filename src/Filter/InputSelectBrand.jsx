@@ -1,11 +1,14 @@
 import Select from 'react-select';
 import { optionsBrand } from '../helpers/optionSelect';
-import s from './SelectBrand.module.css';
-import { useDispatch } from 'react-redux';
+import s from './InputSelectBrand.module.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { filterBrand } from '../redux/filter/slice';
+import { selectBrand } from '../redux/filter/selectors';
 
-const SelectBrand = () => {
+const InputSelectBrand = () => {
   const dispatch = useDispatch();
+  const value = useSelector(selectBrand);
+  console.log(value);
 
   const handleBrandChange = data => dispatch(filterBrand(data.value));
 
@@ -20,10 +23,12 @@ const SelectBrand = () => {
         classNamePrefix="react-select"
         onChange={handleBrandChange}
         placeholder="Brand "
+        value={value}
+        // defaultValue={optionsBrand[0].value}
         // defaultInputValue={optionsBrand[0].value}
       />
     </label>
   );
 };
-
-export default SelectBrand;
+// TODO add reset value for inputs - type select
+export default InputSelectBrand;

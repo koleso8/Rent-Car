@@ -2,18 +2,28 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
 import { fetchCarsThunk, loadMoreCarsThunk } from './operation';
 
-const initialState = { items: [], loading: false, error: null };
+const initialState = {
+  items: [],
+  loading: false,
+  error: null,
+  showLoadMore: true,
+};
 
 const slice = createSlice({
   name: 'cars',
   initialState,
+  reducers: {
+    setShowLoadMore: (state, action) => {
+      state.showLoadMore = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchCarsThunk.fulfilled, (state, action) => {
         state.items = action.payload;
       })
       .addCase(loadMoreCarsThunk.fulfilled, (state, action) => {
-        // if()
+        if (action.payload.length < 12) state.showLoadMore = false;
         state.items = [...state.items, ...action.payload];
       })
       .addMatcher(
@@ -45,4 +55,4 @@ const slice = createSlice({
 
 export const carsReducer = slice.reducer;
 
-// export const {  } = slice.actions;
+export const { setShowLoadMore } = slice.actions;

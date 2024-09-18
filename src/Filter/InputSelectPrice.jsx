@@ -1,10 +1,10 @@
 import Select from 'react-select';
 import { optionsPrice } from '../helpers/optionSelect';
-import s from './SelectBrand.module.css';
+import s from './InputSelectBrand.module.css';
 import { filterPrice } from '../redux/filter/slice';
 import { useDispatch } from 'react-redux';
 
-const SelectPrice = () => {
+const InputSelectPrice = () => {
   const dispatch = useDispatch();
 
   const handlePriceChange = data => dispatch(filterPrice(data.value));
@@ -26,4 +26,4 @@ const SelectPrice = () => {
   );
 };
 
-export default SelectPrice;
+export default InputSelectPrice;

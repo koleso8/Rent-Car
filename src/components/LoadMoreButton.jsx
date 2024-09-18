@@ -13,7 +13,7 @@ const LoadMoreButton = () => {
 
   return (
     <button
-      className="block mx-auto mt-[100px] mb-[150px] text-[#3470ff] underline underline-offset-1 hover:text-[#0b44cd]"
+      className="block mx-auto mb-[150px] text-[#3470ff] underline underline-offset-1 hover:text-[#0b44cd]"
       onClick={handleClick}
     >
       Load More
