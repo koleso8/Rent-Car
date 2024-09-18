@@ -8,7 +8,6 @@ import { selectBrand } from '../redux/filter/selectors';
 const InputSelectBrand = () => {
   const dispatch = useDispatch();
   const value = useSelector(selectBrand);
-  console.log(value);
 
   const handleBrandChange = data => dispatch(filterBrand(data.value));
 
