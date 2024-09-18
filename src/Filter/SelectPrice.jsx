@@ -10,7 +10,7 @@ const SelectPrice = () => {
   const handlePriceChange = data => dispatch(filterPrice(data.value));
 
   return (
-    <label>
+    <label className="text-[#8a8a89] text-xs relative ">
       Price/ 1 hour
       <Select
         name="price"

@@ -10,7 +10,7 @@ const SelectBrand = () => {
   const handleBrandChange = data => dispatch(filterBrand(data.value));
 
   return (
-    <label>
+    <label className="text-[#8a8a89] text-xs relative ">
       Car brand
       <Select
         name="brand"

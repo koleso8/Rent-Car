@@ -10,9 +10,11 @@ const slice = createSlice({
   reducers: {
     setCurrentCar: (state, action) => {
       state.currentCar = action.payload;
+      document.body.style.overflow = 'hidden';
     },
     closeModal: state => {
       state.currentCar = null;
+      document.body.style.overflow = 'unset';
     },
   },
 });

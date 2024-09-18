@@ -16,12 +16,14 @@ const CatalogItem = ({ car }) => {
       <span className="absolute top-4 right-4">
         {!isFavorite ? (
           <GoHeart
+            className="cursor-pointer"
             color="white"
             size="24px"
             onClick={() => dispath(addToFavorite(car))}
           />
         ) : (
           <GoHeartFill
+            className="cursor-pointer"
             color="white"
             size="24px"
             onClick={() => dispath(deleteFavorite(car))}

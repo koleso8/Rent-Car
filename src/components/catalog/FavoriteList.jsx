@@ -6,7 +6,7 @@ const FavoriteList = () => {
   const favoritesCars = useSelector(selectFavorites);
 
   return (
-    <ul className="flex flex-wrap gap-7">
+    <ul className="flex flex-wrap gap-7 justify-center">
       {favoritesCars.map(car => (
         <CatalogItem key={car.id} car={car} />
       ))}

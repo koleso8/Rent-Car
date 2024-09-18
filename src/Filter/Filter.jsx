@@ -1,22 +1,23 @@
 import { Field, Form, Formik } from 'formik';
-
-import SelectBrand from './SelectBrand';
-import SelectPrice from './SelectPrice';
-
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
   addFiltererdCars,
   filterMileageFrom,
   filterMileageTo,
 } from '../redux/filter/slice';
-import { filterCars } from '../helpers/filterCars';
-import { selectCars } from '../redux/cars/selectors';
 import {
   selectFilter,
-  selectFilteredCars,
   selectMileageFrom,
   selectMileageTo,
 } from '../redux/filter/selectors';
+import { selectCars } from '../redux/cars/selectors';
+
+import SelectBrand from './SelectBrand';
+import SelectPrice from './SelectPrice';
+
+import { filterCars } from '../helpers/filterCars';
+import { formatNumber } from '../helpers/formatNumber';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -29,22 +30,15 @@ const Filter = () => {
     dispatch(addFiltererdCars(filterCars(cars, filter)));
   };
 
-  const formatNumber = num => {
-    if (num > 90000) return 90000;
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
-  console.log(formatNumber(4682));
-
   const initialValues = {
     mileageFrom: 0,
     mileageTo: 0,
   };
 
   return (
-    <div className="mb-[50px]">
+    <div className="mb-[50px] h-[74px]">
       <Formik initialValues={initialValues} onSubmit={handleMileageChange}>
-        <Form className="flex gap-[18px] justify-between w-full">
+        <Form className="flex gap-[18px] justify-between w-full items-end">
           <span className="w-[224px]">
             <SelectBrand />
           </span>
@@ -52,7 +46,7 @@ const Filter = () => {
             <SelectPrice />
           </span>
           <span className="flex items-center justify-center w-80">
-            <label className="text-[#8a8a89] text-xs relative mb-2">
+            <label className="text-[#8a8a89] text-xs relative leading-[22px] ">
               Сar mileage / km
               <Field
                 name="mileageFrom"
@@ -67,11 +61,11 @@ const Filter = () => {
                   dispatch(filterMileageFrom(+value));
                 }}
               />
-              <span className="absolute top-6 left-10 z-10 text-black text-lg bg-[#f7f7fb] h-9 w-[120px] pointer-events-none overflow-hidden border-r border-gray-300">{`From ${formatNumber(
+              <span className="absolute top-8 left-10 z-10 text-black text-lg bg-[#f7f7fb] h-9 w-[120px] pointer-events-none overflow-hidden border-r border-gray-300">{`From ${formatNumber(
                 mileageFrom
               )}`}</span>
             </label>
-            <label className=" text-xs text-transparent relative mb-2">
+            <label className=" text-xs text-transparent relative leading-[22px]">
               Сar mileage / km
               <Field
                 name="mileageTo"
@@ -86,12 +80,17 @@ const Filter = () => {
                   dispatch(filterMileageTo(+value));
                 }}
               />
-              <span className="absolute top-6 left-8 z-10 text-black text-lg bg-[#f7f7fb] h-9 w-20 pointer-events-none overflow-hidden">{`To ${formatNumber(
+              <span className="absolute top-8 left-8 z-10 text-black text-lg bg-[#f7f7fb] h-9 w-20 pointer-events-none overflow-hidden">{`To ${formatNumber(
                 mileageTo
               )}`}</span>
             </label>
           </span>
-          <button type="submit">Search</button>
+          <button
+            className="bg-[#3470ff] rounded-xl p-[14px] w-[136px] h-12 text-center text-white font-semibold text-sm"
+            type="submit"
+          >
+            Search
+          </button>
         </Form>
       </Formik>
     </div>
