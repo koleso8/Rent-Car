@@ -13,7 +13,7 @@ const FavoritesPage = () => {
   const isOpen = !!currentCar;
 
   return (
-    <div className="max-w-[1184px] mx-auto pt-8">
+    <div className="max-w-[1184px] mx-auto pt-10">
       {favorites.length ? (
         <FavoriteList />
       ) : (

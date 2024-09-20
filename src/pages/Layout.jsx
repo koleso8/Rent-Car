@@ -13,10 +13,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <header className="shadow-md shadow-slate-300 py-5 fixed z-30 w-screen bg-slate-100">
+      <header className="shadow-md shadow-gray-950 py-5 fixed z-30 w-screen bg-gray-950">
         <Navigation />
       </header>
-      <main className="pt-[80px]">
+      <main className="pt-[76px]">
         <Suspense fallback={<Loader />}>{children}</Suspense>
       </main>
     </>

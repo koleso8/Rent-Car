@@ -12,8 +12,12 @@ html {
   font-family: 'Manrope', sans-serif;
 }
 .active {
-  background-color: #3470ff;
+  background-color: #ffffff;
   border-radius: 34px;
   padding: 10px 15px;
-  color: white;
+  color: rgb(0, 0, 0);
+  & span {
+    background-color: black;
+    color: white;
+  }
 }

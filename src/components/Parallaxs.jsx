@@ -15,7 +15,7 @@ const Parallaxs = () => {
   }, []);
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden ">
       <div id="scene">
         <img
           src={scena}
