@@ -29,8 +29,7 @@ const Filter = () => {
   const mileageTo = useSelector(selectMileageTo);
 
   const handleMileageChange = (_, action) => {
-    console.log(_);
-
+    dispatch(setShowLoadMore(false));
     dispatch(addFiltererdCars(filterCars(cars, filter)));
     dispatch(() => clearFilter());
     action.resetForm();

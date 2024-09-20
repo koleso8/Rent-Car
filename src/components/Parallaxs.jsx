@@ -21,7 +21,7 @@ const Parallaxs = () => {
           src={scena}
           data-depth="0.2"
           alt=""
-          className="absolute z-10 w-screen"
+          className="absolute z-10 h-screen w-screen"
         />
         <img src={road2} data-depth="1" className="w-[2000px] "></img>
       </div>

@@ -20,9 +20,11 @@ const Navigation = () => {
       </NavLink>
       <NavLink className="p-[15px] flex items-center gap-3" to="/favorites">
         Favorites
-        <span className="flex items-center justify-center bg-white text-black w-6 rounded-full font-extrabold ">
-          {countFavorites}
-        </span>
+        {!!countFavorites && (
+          <span className="flex items-center justify-center bg-white text-black w-6 rounded-full font-extrabold ">
+            {countFavorites}
+          </span>
+        )}
       </NavLink>
       {isLoading && <Loader />}
       <Toaster />
