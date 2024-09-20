@@ -2,7 +2,6 @@ import Parallax from 'parallax-js';
 import { useEffect } from 'react';
 
 import scena from '../images/scena.png';
-import road from '../images/road.jpg';
 import road2 from '../images/road2.jpg';
 
 const Parallaxs = () => {
