@@ -13,7 +13,7 @@ const CatalogList = () => {
 
   useEffect(() => {
     if (filteredCars.length) dispatch(setShowLoadMore(false));
-  });
+  }, [useSelector]);
 
   const forRender = (filtered, all) => {
     return filteredCars.length ? filtered : all;

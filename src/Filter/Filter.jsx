@@ -28,8 +28,12 @@ const Filter = () => {
   const mileageFrom = useSelector(selectMileageFrom);
   const mileageTo = useSelector(selectMileageTo);
 
-  const handleMileageChange = () => {
+  const handleMileageChange = (_, action) => {
+    console.log(_);
+
     dispatch(addFiltererdCars(filterCars(cars, filter)));
+    dispatch(() => clearFilter());
+    action.resetForm();
   };
 
   const initialValues = {

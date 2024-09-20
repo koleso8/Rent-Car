@@ -8,12 +8,18 @@ const Navigation = () => {
   const isLoading = useSelector(selectIsLoading);
 
   return (
-    <nav>
-      <NavLink to="/">Home</NavLink>
+    <nav className="flex justify-around items-center font-bold ">
+      <NavLink className="p-[15px]" to="/">
+        Home
+      </NavLink>
 
-      <NavLink to="/catalog">Catalog</NavLink>
+      <NavLink className="p-[15px]" to="/catalog">
+        Catalog
+      </NavLink>
 
-      <NavLink to="/favorites">Favorites</NavLink>
+      <NavLink className="p-[15px]" to="/favorites">
+        Favorites
+      </NavLink>
 
       {isLoading && <Loader />}
       <Toaster />

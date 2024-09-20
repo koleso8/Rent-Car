@@ -11,3 +11,9 @@
 html {
   font-family: 'Manrope', sans-serif;
 }
+.active {
+  background-color: #3470ff;
+  border-radius: 34px;
+  padding: 10px 15px;
+  color: white;
+}

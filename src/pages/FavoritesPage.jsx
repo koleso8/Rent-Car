@@ -11,19 +11,14 @@ const FavoritesPage = () => {
   const currentCar = useSelector(selectCurrentCar);
   const favorites = useSelector(selectFavorites);
   const isOpen = !!currentCar;
-  console.log(favorites);
 
   return (
-    <div className="max-w-[1184px] mx-auto">
+    <div className="max-w-[1184px] mx-auto pt-8">
       {favorites.length ? (
         <FavoriteList />
       ) : (
         <div>
-          <FaHeartCircleXmark
-            size="600px"
-            color="#3470ff"
-            className="mx-auto"
-          />
+          <FaHeartCircleXmark size="50vh" color="#3470ff" className="mx-auto" />
           <h3 className="text-[100px]  text-center font-bold">{'Ooopss :('}</h3>
           <p className="text-[50px]  text-center">
             You don`t have any favorites, you can add them by clicking on the

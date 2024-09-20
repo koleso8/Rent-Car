@@ -51,6 +51,9 @@
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
+.customSelect :global(.react-select__single-value) {
+  font-size: 18px;
+}
 
 .customSelect :global(.react-select__option:hover) {
   color: #121417;

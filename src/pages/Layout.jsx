@@ -12,10 +12,14 @@ const Layout = ({ children }) => {
   dispatch(fetchCarsThunk());
 
   return (
-    <header>
-      <Navigation />
-      <Suspense fallback={<Loader />}>{children}</Suspense>
-    </header>
+    <>
+      <header className="shadow-md shadow-slate-300 py-5 fixed z-30 w-screen bg-slate-100">
+        <Navigation />
+      </header>
+      <main className="pt-[80px]">
+        <Suspense fallback={<Loader />}>{children}</Suspense>
+      </main>
+    </>
   );
 };
 

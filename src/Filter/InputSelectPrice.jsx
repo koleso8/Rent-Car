@@ -2,12 +2,10 @@ import Select from 'react-select';
 import { optionsPrice } from '../helpers/optionSelect';
 import s from './InputSelectBrand.module.css';
 import { filterPrice } from '../redux/filter/slice';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectPrice } from '../redux/filter/selectors';
+import { useDispatch } from 'react-redux';
 
 const InputSelectPrice = () => {
   const dispatch = useDispatch();
-  const value = useSelector(selectPrice);
 
   const handlePriceChange = data => dispatch(filterPrice(data.value));
 
@@ -22,7 +20,6 @@ const InputSelectPrice = () => {
         classNamePrefix="react-select"
         onChange={handlePriceChange}
         placeholder="Price"
-        value={value}
         // defaultInputValue={optionsPrice[0].value}
       />
     </label>

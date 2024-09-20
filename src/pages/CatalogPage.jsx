@@ -14,7 +14,7 @@ const CatalogPage = () => {
   const isOpen = !!currentCar;
 
   return (
-    <div className="max-w-[1184px] mx-auto">
+    <div className="max-w-[1184px] mx-auto pt-6">
       <Filter />
       <CatalogList />
       {showLoadMore && <LoadMoreButton />}
