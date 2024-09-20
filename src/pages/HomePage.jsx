@@ -5,7 +5,7 @@ const HomePage = () => {
     <div className="flex items-center justify-center w-screen fixed">
       <Parallaxs />
 
-      <h1 className="absolute top-1/3 text-9xl text-white drop-shadow-4xl font-extrabold animate-pulse">
+      <h1 className="absolute top-1/3 text-9xl text-white drop-shadow-4xl font-extrabold animate-pulse font-hero ">
         Rent Your First Car
       </h1>
     </div>

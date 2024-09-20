@@ -6,7 +6,9 @@ export default {
       blur: {
         xs: '1px',
       },
-
+      fontFamily: {
+        hero: ['Caveat'],
+      },
       dropShadow: {
         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
         '4xl': [
