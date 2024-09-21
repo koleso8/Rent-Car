@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 
 const initialState = {
   filteredCars: [],
-  brand: '',
+  brand: null,
   price: null,
   mileage: { mileageFrom: 0, mileageTo: 0 },
 };
@@ -35,7 +35,7 @@ const slice = createSlice({
     },
     clearFilter: state => {
       state.filteredCars = [];
-      state.brand = '';
+      state.brand = null;
       state.price = null;
       state.mileage = {
         mileageFrom: 0,

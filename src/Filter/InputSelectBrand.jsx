@@ -1,13 +1,15 @@
 import Select from 'react-select';
 import { optionsBrand } from '../helpers/optionSelect';
 import s from './InputSelectBrand.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { filterBrand } from '../redux/filter/slice';
+import { selectBrand } from '../redux/filter/selectors';
 
 const InputSelectBrand = () => {
   const dispatch = useDispatch();
+  const value = useSelector(selectBrand);
   const handleBrandChange = data => {
-    dispatch(filterBrand(data.value));
+    dispatch(filterBrand(data.value ? data.value : null));
   };
 
   return (
@@ -21,9 +23,12 @@ const InputSelectBrand = () => {
         classNamePrefix="react-select"
         onChange={handleBrandChange}
         placeholder="Brand "
+        value={
+          value ? optionsBrand.find(option => option.value === value) : null
+        }
+        isClearable={true}
       />
     </label>
   );
 };
-// TODO add reset value for inputs - type select scroll
 export default InputSelectBrand;
