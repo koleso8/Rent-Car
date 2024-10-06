@@ -12,7 +12,11 @@ const CatalogItem = ({ car }) => {
   );
 
   return (
-    <li className="w-[274px] h-[426px] relative">
+    <li
+      className="w-[274px] h-[426px] relative"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <span className="absolute top-4 right-4">
         {!isFavorite ? (
           <GoHeart
